@@ -1,0 +1,85 @@
+{
+  "label": "parquet_zstd-orders-properties",
+  "query_id": "20261003_094827_00116_4ekzq",
+  "client_wall_seconds": 0.432,
+  "server_elapsed_ms": 326,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 1,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 1,
+    "planningTimeMillis": 3,
+    "analysisTimeMillis": 9,
+    "cpuTimeMillis": 0,
+    "wallTimeMillis": 0,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 326,
+    "finishingTimeMillis": 107,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 8,
+    "processedBytes": 314,
+    "physicalInputBytes": 314,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 0,
+    "peakMemoryBytes": 446,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 1,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 1,
+      "cpuTimeMillis": 0,
+      "wallTimeMillis": 0,
+      "processedRows": 8,
+      "processedBytes": 314,
+      "physicalInputBytes": 314,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": []
+    }
+  },
+  "rows": [
+    {
+      "key": "format",
+      "value": "iceberg/PARQUET"
+    },
+    {
+      "key": "provider",
+      "value": "iceberg"
+    },
+    {
+      "key": "current-snapshot-id",
+      "value": "3366062600868759437"
+    },
+    {
+      "key": "location",
+      "value": "s3://bench/orders-36250640b93d413ebcea3741fab710ba"
+    },
+    {
+      "key": "format-version",
+      "value": "2"
+    },
+    {
+      "key": "write.format.default",
+      "value": "PARQUET"
+    },
+    {
+      "key": "commit.retry.num-retries",
+      "value": "4"
+    },
+    {
+      "key": "write.parquet.compression-codec",
+      "value": "zstd"
+    }
+  ]
+}

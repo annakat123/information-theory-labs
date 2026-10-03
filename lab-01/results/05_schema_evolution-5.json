@@ -1,0 +1,105 @@
+{
+  "label": "05_schema_evolution-5",
+  "query_id": "20261003_094807_00088_4ekzq",
+  "client_wall_seconds": 0.449,
+  "server_elapsed_ms": 343,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 12,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 12,
+    "planningTimeMillis": 31,
+    "analysisTimeMillis": 12,
+    "cpuTimeMillis": 14,
+    "wallTimeMillis": 23,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 343,
+    "finishingTimeMillis": 107,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 2,
+    "processedBytes": 1683,
+    "physicalInputBytes": 1683,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 694,
+    "peakMemoryBytes": 824,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 1,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 1,
+      "cpuTimeMillis": 0,
+      "wallTimeMillis": 0,
+      "processedRows": 2,
+      "processedBytes": 278,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 9,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 9,
+          "cpuTimeMillis": 2,
+          "wallTimeMillis": 6,
+          "processedRows": 2,
+          "processedBytes": 416,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "2",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 2,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 2,
+              "cpuTimeMillis": 12,
+              "wallTimeMillis": 17,
+              "processedRows": 2,
+              "processedBytes": 1683,
+              "physicalInputBytes": 1683,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "name": "Customer#000088723",
+      "custkey": 88723,
+      "orderkey": 6882,
+      "total_quantity": "303.00",
+      "comment_text": "column added"
+    },
+    {
+      "name": "Customer#000332662",
+      "custkey": 332662,
+      "orderkey": 29158,
+      "total_quantity": "305.00",
+      "comment_text": "column added"
+    }
+  ]
+}

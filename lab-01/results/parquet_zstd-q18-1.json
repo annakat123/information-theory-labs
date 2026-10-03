@@ -1,0 +1,965 @@
+{
+  "label": "parquet_zstd-q18-1",
+  "query_id": "20261003_094828_00119_4ekzq",
+  "client_wall_seconds": 8.57,
+  "server_elapsed_ms": 8450,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 103,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 103,
+    "planningTimeMillis": 111,
+    "analysisTimeMillis": 39,
+    "cpuTimeMillis": 6914,
+    "wallTimeMillis": 15955,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 8450,
+    "finishingTimeMillis": 106,
+    "physicalInputTimeMillis": 8221,
+    "processedRows": 68999891,
+    "processedBytes": 169460426,
+    "physicalInputBytes": 146950762,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 262603933,
+    "peakMemoryBytes": 492327771,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 9,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 9,
+      "cpuTimeMillis": 1,
+      "wallTimeMillis": 1,
+      "processedRows": 100,
+      "processedBytes": 5942,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 41,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 41,
+          "cpuTimeMillis": 841,
+          "wallTimeMillis": 1310,
+          "processedRows": 7502123,
+          "processedBytes": 120051750,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "2",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 1500,
+              "wallTimeMillis": 2700,
+              "processedRows": 29999795,
+              "processedBytes": 35431883,
+              "physicalInputBytes": 35431883,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            },
+            {
+              "stageId": "3",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 26,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 26,
+              "cpuTimeMillis": 1250,
+              "wallTimeMillis": 5830,
+              "processedRows": 8250301,
+              "processedBytes": 97383123,
+              "physicalInputBytes": 74873459,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "4",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 16,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 16,
+                  "cpuTimeMillis": 1570,
+                  "wallTimeMillis": 1990,
+                  "processedRows": 7501822,
+                  "processedBytes": 120036577,
+                  "physicalInputBytes": 0,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": [
+                    {
+                      "stageId": "5",
+                      "state": "FINISHED",
+                      "done": true,
+                      "nodes": 1,
+                      "totalSplits": 5,
+                      "queuedSplits": 0,
+                      "runningSplits": 0,
+                      "completedSplits": 5,
+                      "cpuTimeMillis": 1660,
+                      "wallTimeMillis": 3880,
+                      "processedRows": 29999795,
+                      "processedBytes": 35431883,
+                      "physicalInputBytes": 35431883,
+                      "failedTasks": 0,
+                      "coordinatorOnly": false,
+                      "subStages": []
+                    }
+                  ]
+                },
+                {
+                  "stageId": "6",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 92,
+                  "wallTimeMillis": 244,
+                  "processedRows": 750000,
+                  "processedBytes": 1213537,
+                  "physicalInputBytes": 1213537,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "name": "Customer#000333941",
+      "custkey": 333941,
+      "orderkey": 2199712,
+      "orderdate": "1996-09-30",
+      "totalprice": 569370.4,
+      "total_quantity": 327.0
+    },
+    {
+      "name": "Customer#000565334",
+      "custkey": 565334,
+      "orderkey": 18869634,
+      "orderdate": "1995-01-10",
+      "totalprice": 565520.21,
+      "total_quantity": 310.0
+    },
+    {
+      "name": "Customer#000466960",
+      "custkey": 466960,
+      "orderkey": 5200102,
+      "orderdate": "1997-01-22",
+      "totalprice": 550628.34,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000322406",
+      "custkey": 322406,
+      "orderkey": 2745894,
+      "orderdate": "1996-07-04",
+      "totalprice": 549127.1,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000185383",
+      "custkey": 185383,
+      "orderkey": 16089345,
+      "orderdate": "1996-07-09",
+      "totalprice": 539520.2,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000546893",
+      "custkey": 546893,
+      "orderkey": 5746311,
+      "orderdate": "1996-10-10",
+      "totalprice": 538443.24,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000654188",
+      "custkey": 654188,
+      "orderkey": 28077922,
+      "orderdate": "1996-10-27",
+      "totalprice": 537859.01,
+      "total_quantity": 319.0
+    },
+    {
+      "name": "Customer#000183092",
+      "custkey": 183092,
+      "orderkey": 4806726,
+      "orderdate": "1995-01-17",
+      "totalprice": 537776.4,
+      "total_quantity": 328.0
+    },
+    {
+      "name": "Customer#000151676",
+      "custkey": 151676,
+      "orderkey": 25243237,
+      "orderdate": "1996-06-30",
+      "totalprice": 535367.43,
+      "total_quantity": 315.0
+    },
+    {
+      "name": "Customer#000106226",
+      "custkey": 106226,
+      "orderkey": 23245603,
+      "orderdate": "1994-11-22",
+      "totalprice": 531353.33,
+      "total_quantity": 321.0
+    },
+    {
+      "name": "Customer#000589589",
+      "custkey": 589589,
+      "orderkey": 2869152,
+      "orderdate": "1996-06-20",
+      "totalprice": 530051.13,
+      "total_quantity": 317.0
+    },
+    {
+      "name": "Customer#000063100",
+      "custkey": 63100,
+      "orderkey": 23861472,
+      "orderdate": "1997-10-30",
+      "totalprice": 529490.09,
+      "total_quantity": 314.0
+    },
+    {
+      "name": "Customer#000273007",
+      "custkey": 273007,
+      "orderkey": 5832321,
+      "orderdate": "1997-02-09",
+      "totalprice": 526758.63,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000735983",
+      "custkey": 735983,
+      "orderkey": 1263015,
+      "orderdate": "1997-02-02",
+      "totalprice": 524707.98,
+      "total_quantity": 320.0
+    },
+    {
+      "name": "Customer#000061255",
+      "custkey": 61255,
+      "orderkey": 735366,
+      "orderdate": "1993-11-24",
+      "totalprice": 523028.09,
+      "total_quantity": 309.0
+    },
+    {
+      "name": "Customer#000537949",
+      "custkey": 537949,
+      "orderkey": 4267751,
+      "orderdate": "1994-11-04",
+      "totalprice": 520697.3,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000144877",
+      "custkey": 144877,
+      "orderkey": 19094241,
+      "orderdate": "1992-01-14",
+      "totalprice": 517539.03,
+      "total_quantity": 310.0
+    },
+    {
+      "name": "Customer#000207307",
+      "custkey": 207307,
+      "orderkey": 8639938,
+      "orderdate": "1996-08-30",
+      "totalprice": 517147.87,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000531949",
+      "custkey": 531949,
+      "orderkey": 23794694,
+      "orderdate": "1995-05-15",
+      "totalprice": 514230.1,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000080642",
+      "custkey": 80642,
+      "orderkey": 19232581,
+      "orderdate": "1996-09-26",
+      "totalprice": 512776.4,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000101929",
+      "custkey": 101929,
+      "orderkey": 20324257,
+      "orderdate": "1996-09-10",
+      "totalprice": 510891.36,
+      "total_quantity": 314.0
+    },
+    {
+      "name": "Customer#000687226",
+      "custkey": 687226,
+      "orderkey": 5489475,
+      "orderdate": "1997-05-23",
+      "totalprice": 510661.54,
+      "total_quantity": 311.0
+    },
+    {
+      "name": "Customer#000599941",
+      "custkey": 599941,
+      "orderkey": 1544643,
+      "orderdate": "1997-09-20",
+      "totalprice": 510599.85,
+      "total_quantity": 320.0
+    },
+    {
+      "name": "Customer#000433432",
+      "custkey": 433432,
+      "orderkey": 19730208,
+      "orderdate": "1994-01-24",
+      "totalprice": 509215.77,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000661493",
+      "custkey": 661493,
+      "orderkey": 23129479,
+      "orderdate": "1992-08-20",
+      "totalprice": 508211.13,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000333592",
+      "custkey": 333592,
+      "orderkey": 6515330,
+      "orderdate": "1997-01-27",
+      "totalprice": 507728.76,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000330490",
+      "custkey": 330490,
+      "orderkey": 5007490,
+      "orderdate": "1992-08-07",
+      "totalprice": 507715.43,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000444374",
+      "custkey": 444374,
+      "orderkey": 983201,
+      "orderdate": "1993-12-30",
+      "totalprice": 507181.04,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000600490",
+      "custkey": 600490,
+      "orderkey": 1971680,
+      "orderdate": "1995-06-14",
+      "totalprice": 506652.62,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000162652",
+      "custkey": 162652,
+      "orderkey": 20315522,
+      "orderdate": "1998-02-24",
+      "totalprice": 506243.82,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000018400",
+      "custkey": 18400,
+      "orderkey": 3861123,
+      "orderdate": "1998-07-03",
+      "totalprice": 503924.8,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000445163",
+      "custkey": 445163,
+      "orderkey": 27529377,
+      "orderdate": "1998-05-05",
+      "totalprice": 503623.68,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000456979",
+      "custkey": 456979,
+      "orderkey": 21140833,
+      "orderdate": "1994-02-03",
+      "totalprice": 503019.83,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000552860",
+      "custkey": 552860,
+      "orderkey": 12331750,
+      "orderdate": "1994-12-07",
+      "totalprice": 502716.26,
+      "total_quantity": 310.0
+    },
+    {
+      "name": "Customer#000349520",
+      "custkey": 349520,
+      "orderkey": 1742403,
+      "orderdate": "1996-10-19",
+      "totalprice": 500413.44,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000154159",
+      "custkey": 154159,
+      "orderkey": 18188388,
+      "orderdate": "1997-06-20",
+      "totalprice": 500053.7,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000085405",
+      "custkey": 85405,
+      "orderkey": 13971749,
+      "orderdate": "1996-05-07",
+      "totalprice": 500010.68,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000525259",
+      "custkey": 525259,
+      "orderkey": 23062983,
+      "orderdate": "1998-04-04",
+      "totalprice": 499939.19,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000321301",
+      "custkey": 321301,
+      "orderkey": 24319555,
+      "orderdate": "1992-08-08",
+      "totalprice": 499664.91,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000670843",
+      "custkey": 670843,
+      "orderkey": 26707522,
+      "orderdate": "1996-01-02",
+      "totalprice": 499626.87,
+      "total_quantity": 311.0
+    },
+    {
+      "name": "Customer#000632518",
+      "custkey": 632518,
+      "orderkey": 12845285,
+      "orderdate": "1993-05-25",
+      "totalprice": 498489.42,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000304117",
+      "custkey": 304117,
+      "orderkey": 28092902,
+      "orderdate": "1997-03-23",
+      "totalprice": 498186.62,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000240430",
+      "custkey": 240430,
+      "orderkey": 12809282,
+      "orderdate": "1994-05-21",
+      "totalprice": 497945.17,
+      "total_quantity": 314.0
+    },
+    {
+      "name": "Customer#000285827",
+      "custkey": 285827,
+      "orderkey": 21213895,
+      "orderdate": "1992-01-03",
+      "totalprice": 497620.21,
+      "total_quantity": 327.0
+    },
+    {
+      "name": "Customer#000542596",
+      "custkey": 542596,
+      "orderkey": 20038309,
+      "orderdate": "1992-12-31",
+      "totalprice": 496794.24,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000195605",
+      "custkey": 195605,
+      "orderkey": 26587169,
+      "orderdate": "1996-01-19",
+      "totalprice": 496395.81,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000240392",
+      "custkey": 240392,
+      "orderkey": 16424550,
+      "orderdate": "1994-03-11",
+      "totalprice": 495787.05,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000414401",
+      "custkey": 414401,
+      "orderkey": 10678725,
+      "orderdate": "1992-12-07",
+      "totalprice": 495455.87,
+      "total_quantity": 309.0
+    },
+    {
+      "name": "Customer#000624730",
+      "custkey": 624730,
+      "orderkey": 21296295,
+      "orderdate": "1996-04-10",
+      "totalprice": 494945.26,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000062995",
+      "custkey": 62995,
+      "orderkey": 4259524,
+      "orderdate": "1998-02-12",
+      "totalprice": 494227.87,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000227690",
+      "custkey": 227690,
+      "orderkey": 4527553,
+      "orderdate": "1994-05-22",
+      "totalprice": 494218.86,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000278458",
+      "custkey": 278458,
+      "orderkey": 25797412,
+      "orderdate": "1996-01-31",
+      "totalprice": 493230.03,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000250738",
+      "custkey": 250738,
+      "orderkey": 9304229,
+      "orderdate": "1997-08-24",
+      "totalprice": 492010.14,
+      "total_quantity": 309.0
+    },
+    {
+      "name": "Customer#000304864",
+      "custkey": 304864,
+      "orderkey": 10603495,
+      "orderdate": "1998-04-03",
+      "totalprice": 491355.58,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000259498",
+      "custkey": 259498,
+      "orderkey": 15104033,
+      "orderdate": "1995-02-03",
+      "totalprice": 490283.03,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000322405",
+      "custkey": 322405,
+      "orderkey": 28184576,
+      "orderdate": "1994-01-29",
+      "totalprice": 490162.51,
+      "total_quantity": 324.0
+    },
+    {
+      "name": "Customer#000166400",
+      "custkey": 166400,
+      "orderkey": 6091649,
+      "orderdate": "1992-06-24",
+      "totalprice": 489517.45,
+      "total_quantity": 305.0
+    },
+    {
+      "name": "Customer#000661945",
+      "custkey": 661945,
+      "orderkey": 15036034,
+      "orderdate": "1994-07-05",
+      "totalprice": 489438.11,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000162148",
+      "custkey": 162148,
+      "orderkey": 26465922,
+      "orderdate": "1996-11-04",
+      "totalprice": 488305.85,
+      "total_quantity": 331.0
+    },
+    {
+      "name": "Customer#000125770",
+      "custkey": 125770,
+      "orderkey": 24581062,
+      "orderdate": "1997-04-11",
+      "totalprice": 487904.51,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000241295",
+      "custkey": 241295,
+      "orderkey": 20649506,
+      "orderdate": "1995-06-20",
+      "totalprice": 487395.74,
+      "total_quantity": 313.0
+    },
+    {
+      "name": "Customer#000032746",
+      "custkey": 32746,
+      "orderkey": 7549735,
+      "orderdate": "1994-06-30",
+      "totalprice": 487128.68,
+      "total_quantity": 315.0
+    },
+    {
+      "name": "Customer#000001654",
+      "custkey": 1654,
+      "orderkey": 6210853,
+      "orderdate": "1997-08-08",
+      "totalprice": 487050.63,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000480139",
+      "custkey": 480139,
+      "orderkey": 8319046,
+      "orderdate": "1995-10-07",
+      "totalprice": 485748.53,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000570238",
+      "custkey": 570238,
+      "orderkey": 29122912,
+      "orderdate": "1996-05-08",
+      "totalprice": 484895.94,
+      "total_quantity": 323.0
+    },
+    {
+      "name": "Customer#000090509",
+      "custkey": 90509,
+      "orderkey": 17668135,
+      "orderdate": "1997-02-25",
+      "totalprice": 484864.33,
+      "total_quantity": 303.0
+    },
+    {
+      "name": "Customer#000205742",
+      "custkey": 205742,
+      "orderkey": 8231942,
+      "orderdate": "1993-02-06",
+      "totalprice": 484853.21,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000573067",
+      "custkey": 573067,
+      "orderkey": 20662370,
+      "orderdate": "1992-07-22",
+      "totalprice": 484564.94,
+      "total_quantity": 315.0
+    },
+    {
+      "name": "Customer#000541436",
+      "custkey": 541436,
+      "orderkey": 17272195,
+      "orderdate": "1993-07-13",
+      "totalprice": 484204.93,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000060205",
+      "custkey": 60205,
+      "orderkey": 28584225,
+      "orderdate": "1996-02-21",
+      "totalprice": 483713.64,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000236588",
+      "custkey": 236588,
+      "orderkey": 11484962,
+      "orderdate": "1992-02-10",
+      "totalprice": 483311.6,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000425096",
+      "custkey": 425096,
+      "orderkey": 29805379,
+      "orderdate": "1994-06-07",
+      "totalprice": 481348.14,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000474130",
+      "custkey": 474130,
+      "orderkey": 29089474,
+      "orderdate": "1994-04-18",
+      "totalprice": 481124.16,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000442804",
+      "custkey": 442804,
+      "orderkey": 10858721,
+      "orderdate": "1998-06-03",
+      "totalprice": 480822.83,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000648172",
+      "custkey": 648172,
+      "orderkey": 28346247,
+      "orderdate": "1992-11-01",
+      "totalprice": 480098.85,
+      "total_quantity": 310.0
+    },
+    {
+      "name": "Customer#000147628",
+      "custkey": 147628,
+      "orderkey": 14389831,
+      "orderdate": "1996-11-04",
+      "totalprice": 480091.39,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000435031",
+      "custkey": 435031,
+      "orderkey": 17812705,
+      "orderdate": "1992-03-20",
+      "totalprice": 479893.51,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000179798",
+      "custkey": 179798,
+      "orderkey": 12099683,
+      "orderdate": "1994-12-13",
+      "totalprice": 479861.05,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000090937",
+      "custkey": 90937,
+      "orderkey": 3037414,
+      "orderdate": "1995-01-25",
+      "totalprice": 479693.27,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000203623",
+      "custkey": 203623,
+      "orderkey": 19628135,
+      "orderdate": "1992-01-03",
+      "totalprice": 479390.13,
+      "total_quantity": 315.0
+    },
+    {
+      "name": "Customer#000049702",
+      "custkey": 49702,
+      "orderkey": 23957318,
+      "orderdate": "1998-06-16",
+      "totalprice": 477158.91,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000350839",
+      "custkey": 350839,
+      "orderkey": 10740227,
+      "orderdate": "1992-12-20",
+      "totalprice": 476779.93,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000362798",
+      "custkey": 362798,
+      "orderkey": 9506693,
+      "orderdate": "1993-07-20",
+      "totalprice": 476270.01,
+      "total_quantity": 314.0
+    },
+    {
+      "name": "Customer#000091847",
+      "custkey": 91847,
+      "orderkey": 22855844,
+      "orderdate": "1996-01-15",
+      "totalprice": 475796.6,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000088330",
+      "custkey": 88330,
+      "orderkey": 9128386,
+      "orderdate": "1992-12-07",
+      "totalprice": 475600.22,
+      "total_quantity": 301.0
+    },
+    {
+      "name": "Customer#000315599",
+      "custkey": 315599,
+      "orderkey": 12378086,
+      "orderdate": "1995-03-13",
+      "totalprice": 474997.62,
+      "total_quantity": 320.0
+    },
+    {
+      "name": "Customer#000043973",
+      "custkey": 43973,
+      "orderkey": 10805828,
+      "orderdate": "1997-07-29",
+      "totalprice": 474883.92,
+      "total_quantity": 316.0
+    },
+    {
+      "name": "Customer#000661336",
+      "custkey": 661336,
+      "orderkey": 16215716,
+      "orderdate": "1993-04-12",
+      "totalprice": 474068.53,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000271873",
+      "custkey": 271873,
+      "orderkey": 24813703,
+      "orderdate": "1994-02-12",
+      "totalprice": 473761.19,
+      "total_quantity": 307.0
+    },
+    {
+      "name": "Customer#000069700",
+      "custkey": 69700,
+      "orderkey": 2232932,
+      "orderdate": "1997-04-13",
+      "totalprice": 473189.94,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000256375",
+      "custkey": 256375,
+      "orderkey": 11231077,
+      "orderdate": "1994-05-27",
+      "totalprice": 472917.94,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000081919",
+      "custkey": 81919,
+      "orderkey": 502886,
+      "orderdate": "1994-04-12",
+      "totalprice": 472844.09,
+      "total_quantity": 312.0
+    },
+    {
+      "name": "Customer#000078095",
+      "custkey": 78095,
+      "orderkey": 3767271,
+      "orderdate": "1996-08-07",
+      "totalprice": 472630.38,
+      "total_quantity": 318.0
+    },
+    {
+      "name": "Customer#000176632",
+      "custkey": 176632,
+      "orderkey": 22017989,
+      "orderdate": "1996-06-17",
+      "totalprice": 472316.64,
+      "total_quantity": 318.0
+    },
+    {
+      "name": "Customer#000634321",
+      "custkey": 634321,
+      "orderkey": 4702759,
+      "orderdate": "1994-11-07",
+      "totalprice": 472278.8,
+      "total_quantity": 320.0
+    },
+    {
+      "name": "Customer#000277688",
+      "custkey": 277688,
+      "orderkey": 22040514,
+      "orderdate": "1997-09-22",
+      "totalprice": 472266.03,
+      "total_quantity": 308.0
+    },
+    {
+      "name": "Customer#000297394",
+      "custkey": 297394,
+      "orderkey": 8028004,
+      "orderdate": "1996-04-11",
+      "totalprice": 471511.23,
+      "total_quantity": 302.0
+    },
+    {
+      "name": "Customer#000055510",
+      "custkey": 55510,
+      "orderkey": 22220514,
+      "orderdate": "1992-12-26",
+      "totalprice": 471260.23,
+      "total_quantity": 306.0
+    },
+    {
+      "name": "Customer#000017828",
+      "custkey": 17828,
+      "orderkey": 2329187,
+      "orderdate": "1998-01-04",
+      "totalprice": 471099.75,
+      "total_quantity": 304.0
+    },
+    {
+      "name": "Customer#000441607",
+      "custkey": 441607,
+      "orderkey": 10889601,
+      "orderdate": "1992-05-22",
+      "totalprice": 470826.71,
+      "total_quantity": 306.0
+    }
+  ]
+}

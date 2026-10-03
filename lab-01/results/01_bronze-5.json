@@ -1,0 +1,94 @@
+{
+  "label": "01_bronze-5",
+  "query_id": "20261003_094746_00076_4ekzq",
+  "client_wall_seconds": 2.816,
+  "server_elapsed_ms": 2694,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 48,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 48,
+    "planningTimeMillis": 41,
+    "analysisTimeMillis": 5,
+    "cpuTimeMillis": 8094,
+    "wallTimeMillis": 10337,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 2694,
+    "finishingTimeMillis": 114,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 7500000,
+    "processedBytes": 0,
+    "physicalInputBytes": 0,
+    "physicalWrittenBytes": 74608310,
+    "internalNetworkInputBytes": 210265053,
+    "peakMemoryBytes": 47758180,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 9,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 9,
+      "cpuTimeMillis": 24,
+      "wallTimeMillis": 147,
+      "processedRows": 32,
+      "processedBytes": 242973,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": true,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 23,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 23,
+          "cpuTimeMillis": 2530,
+          "wallTimeMillis": 3330,
+          "processedRows": 7500000,
+          "processedBytes": 210022080,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "2",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 16,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 16,
+              "cpuTimeMillis": 5540,
+              "wallTimeMillis": 6860,
+              "processedRows": 7500000,
+              "processedBytes": 0,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "rows": 7500000
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Exception: C:\Users\anton\lakehouse\practical-1-variant-3\run-lab.ps1:24
+Line |
+  24 |     throw "$Label : $($response.error.message)"
+     |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | source-q18 : line 13:10: mismatched input ';'. Expecting: <EOF>
+
+

@@ -1,0 +1,8 @@
+{
+  "time_travel": "passed",
+  "schema_evolution": "passed",
+  "pipeline": "passed",
+  "good_snapshot_id": 9011628978264547179,
+  "rollback": "passed",
+  "gold_matches_original": true
+}

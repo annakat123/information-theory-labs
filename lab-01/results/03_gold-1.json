@@ -1,0 +1,151 @@
+{
+  "label": "03_gold-1",
+  "query_id": "20261003_094804_00081_4ekzq",
+  "client_wall_seconds": 0.564,
+  "server_elapsed_ms": 447,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 71,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 71,
+    "planningTimeMillis": 95,
+    "analysisTimeMillis": 26,
+    "cpuTimeMillis": 50,
+    "wallTimeMillis": 179,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 447,
+    "finishingTimeMillis": 105,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 904,
+    "processedBytes": 21830,
+    "physicalInputBytes": 21786,
+    "physicalWrittenBytes": 3131,
+    "internalNetworkInputBytes": 29454,
+    "peakMemoryBytes": 132312,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 9,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 9,
+      "cpuTimeMillis": 16,
+      "wallTimeMillis": 124,
+      "processedRows": 31,
+      "processedBytes": 14196,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": true,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 23,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 23,
+          "cpuTimeMillis": 8,
+          "wallTimeMillis": 20,
+          "processedRows": 100,
+          "processedBytes": 7563,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "2",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 9,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 9,
+              "cpuTimeMillis": 1,
+              "wallTimeMillis": 1,
+              "processedRows": 100,
+              "processedBytes": 7563,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "3",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 19,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 19,
+                  "cpuTimeMillis": 17,
+                  "wallTimeMillis": 21,
+                  "processedRows": 302,
+                  "processedBytes": 7306,
+                  "physicalInputBytes": 7262,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": [
+                    {
+                      "stageId": "4",
+                      "state": "FINISHED",
+                      "done": true,
+                      "nodes": 1,
+                      "totalSplits": 9,
+                      "queuedSplits": 0,
+                      "runningSplits": 0,
+                      "completedSplits": 9,
+                      "cpuTimeMillis": 1,
+                      "wallTimeMillis": 1,
+                      "processedRows": 2,
+                      "processedBytes": 88,
+                      "physicalInputBytes": 0,
+                      "failedTasks": 0,
+                      "coordinatorOnly": false,
+                      "subStages": [
+                        {
+                          "stageId": "5",
+                          "state": "FINISHED",
+                          "done": true,
+                          "nodes": 1,
+                          "totalSplits": 2,
+                          "queuedSplits": 0,
+                          "runningSplits": 0,
+                          "completedSplits": 2,
+                          "cpuTimeMillis": 7,
+                          "wallTimeMillis": 12,
+                          "processedRows": 602,
+                          "processedBytes": 14524,
+                          "physicalInputBytes": 14524,
+                          "failedTasks": 0,
+                          "coordinatorOnly": false,
+                          "subStages": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "rows": 100
+    }
+  ]
+}

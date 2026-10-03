@@ -1,0 +1,77 @@
+{
+  "label": "orc_zstd-lineitem-files",
+  "query_id": "20261003_095035_00156_4ekzq",
+  "client_wall_seconds": 0.446,
+  "server_elapsed_ms": 325,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 10,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 10,
+    "planningTimeMillis": 5,
+    "analysisTimeMillis": 11,
+    "cpuTimeMillis": 6,
+    "wallTimeMillis": 8,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 325,
+    "finishingTimeMillis": 105,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 5,
+    "processedBytes": 3502,
+    "physicalInputBytes": 3502,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 98,
+    "peakMemoryBytes": 764,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 9,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 9,
+      "cpuTimeMillis": 1,
+      "wallTimeMillis": 1,
+      "processedRows": 1,
+      "processedBytes": 98,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 5,
+          "wallTimeMillis": 7,
+          "processedRows": 5,
+          "processedBytes": 3502,
+          "physicalInputBytes": 3502,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "rows": 29999795,
+      "bytes": 65085057,
+      "files": 5
+    }
+  ]
+}

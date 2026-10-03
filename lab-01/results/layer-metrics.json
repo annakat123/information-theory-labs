@@ -1,0 +1,52 @@
+[
+  {
+    "schema": "v3_bronze",
+    "table": "customer",
+    "rows": 750000,
+    "bytes": 1149239,
+    "files": 1,
+    "format": "PARQUET",
+    "parquet_codec": "zstd",
+    "orc_codec": null
+  },
+  {
+    "schema": "v3_bronze",
+    "table": "orders",
+    "rows": 7500000,
+    "bytes": 74608310,
+    "files": 2,
+    "format": "PARQUET",
+    "parquet_codec": "zstd",
+    "orc_codec": null
+  },
+  {
+    "schema": "v3_bronze",
+    "table": "lineitem",
+    "rows": 29999795,
+    "bytes": 35299592,
+    "files": 5,
+    "format": "PARQUET",
+    "parquet_codec": "zstd",
+    "orc_codec": null
+  },
+  {
+    "schema": "v3_silver",
+    "table": "large_orders_history",
+    "rows": 602,
+    "bytes": 14524,
+    "files": 2,
+    "format": "PARQUET",
+    "parquet_codec": "zstd",
+    "orc_codec": null
+  },
+  {
+    "schema": "v3_gold",
+    "table": "large_volume_customers",
+    "rows": 100,
+    "bytes": 3131,
+    "files": 1,
+    "format": "PARQUET",
+    "parquet_codec": "zstd",
+    "orc_codec": null
+  }
+]

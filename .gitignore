@@ -1,0 +1,8 @@
+**/spark/jars/
+**/__pycache__/
+**/_qa/
+**/.local/
+**/.env
+~$*
+*.zip
+*.pdf

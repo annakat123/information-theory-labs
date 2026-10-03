@@ -1,0 +1,22 @@
+[
+  "run",
+  "--rm",
+  "--name",
+  "q18-variant3-spark",
+  "--add-host",
+  "host.docker.internal:host-gateway",
+  "-v",
+  "C:\\Users\\anton\\lakehouse\\practical-1-variant-3:/work",
+  "-v",
+  "C:\\Users\\anton\\lakehouse\\laba2\\tpch-spark\\jars:/opt/spark/iceberg-jars:ro",
+  "-v",
+  "C:\\Users\\anton\\lakehouse\\practical-1-variant-3\\configs\\spark-defaults.conf:/opt/spark/conf/spark-defaults.conf:ro",
+  "--entrypoint",
+  "/opt/spark/bin/spark-submit",
+  "apache/spark:3.5.3",
+  "--master",
+  "local[4]",
+  "--driver-memory",
+  "2g",
+  "/work/spark/verify_lakehouse.py"
+]

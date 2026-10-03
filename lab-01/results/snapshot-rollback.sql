@@ -1,0 +1,1 @@
+ALTER TABLE bench.v3_gold.large_volume_customers EXECUTE rollback_to_snapshot(9011628978264547179)

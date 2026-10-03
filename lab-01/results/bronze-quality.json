@@ -1,0 +1,123 @@
+{
+  "label": "bronze-quality",
+  "query_id": "20261003_094751_00078_4ekzq",
+  "client_wall_seconds": 4.638,
+  "server_elapsed_ms": 4495,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 43,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 43,
+    "planningTimeMillis": 74,
+    "analysisTimeMillis": 48,
+    "cpuTimeMillis": 1943,
+    "wallTimeMillis": 10331,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 4495,
+    "finishingTimeMillis": 119,
+    "physicalInputTimeMillis": 7920,
+    "processedRows": 38249795,
+    "processedBytes": 111300682,
+    "physicalInputBytes": 111300682,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 568,
+    "peakMemoryBytes": 31319002,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 35,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 35,
+      "cpuTimeMillis": 4,
+      "wallTimeMillis": 4,
+      "processedRows": 8,
+      "processedBytes": 568,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 131,
+          "wallTimeMillis": 337,
+          "processedRows": 750000,
+          "processedBytes": 1149239,
+          "physicalInputBytes": 1149239,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        },
+        {
+          "stageId": "2",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 2,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 2,
+          "cpuTimeMillis": 955,
+          "wallTimeMillis": 5830,
+          "processedRows": 7500000,
+          "processedBytes": 74705475,
+          "physicalInputBytes": 74705475,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        },
+        {
+          "stageId": "3",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 853,
+          "wallTimeMillis": 4160,
+          "processedRows": 29999795,
+          "processedBytes": 35445968,
+          "physicalInputBytes": 35445968,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "table_name": "customer",
+      "rows": 750000,
+      "invalid_rows": 0
+    },
+    {
+      "table_name": "lineitem",
+      "rows": 29999795,
+      "invalid_rows": 0
+    },
+    {
+      "table_name": "orders",
+      "rows": 7500000,
+      "invalid_rows": 0
+    }
+  ]
+}

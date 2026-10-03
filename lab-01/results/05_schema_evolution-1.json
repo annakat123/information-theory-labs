@@ -1,0 +1,113 @@
+{
+  "label": "05_schema_evolution-1",
+  "query_id": "20261003_094806_00084_4ekzq",
+  "client_wall_seconds": 0.493,
+  "server_elapsed_ms": 369,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 51,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 51,
+    "planningTimeMillis": 53,
+    "analysisTimeMillis": 20,
+    "cpuTimeMillis": 29,
+    "wallTimeMillis": 157,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 369,
+    "finishingTimeMillis": 113,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 301,
+    "processedBytes": 7262,
+    "physicalInputBytes": 7262,
+    "physicalWrittenBytes": 740,
+    "internalNetworkInputBytes": 7357,
+    "peakMemoryBytes": 2824,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 9,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 9,
+      "cpuTimeMillis": 17,
+      "wallTimeMillis": 137,
+      "processedRows": 31,
+      "processedBytes": 6927,
+      "physicalInputBytes": 0,
+      "failedTasks": 0,
+      "coordinatorOnly": true,
+      "subStages": [
+        {
+          "stageId": "1",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 23,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 23,
+          "cpuTimeMillis": 8,
+          "wallTimeMillis": 16,
+          "processedRows": 2,
+          "processedBytes": 215,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "2",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 9,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 9,
+              "cpuTimeMillis": 1,
+              "wallTimeMillis": 1,
+              "processedRows": 2,
+              "processedBytes": 215,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "3",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 10,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 10,
+                  "cpuTimeMillis": 3,
+                  "wallTimeMillis": 3,
+                  "processedRows": 301,
+                  "processedBytes": 7262,
+                  "physicalInputBytes": 7262,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "rows": 2
+    }
+  ]
+}

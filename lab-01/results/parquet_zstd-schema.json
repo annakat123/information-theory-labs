@@ -1,0 +1,32 @@
+{
+  "label": "parquet_zstd-schema",
+  "query_id": "20261003_094817_00109_4ekzq",
+  "client_wall_seconds": 0.363,
+  "server_elapsed_ms": 249,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": false,
+    "nodes": 0,
+    "totalSplits": 0,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 0,
+    "planningTimeMillis": 0,
+    "analysisTimeMillis": 0,
+    "cpuTimeMillis": 0,
+    "wallTimeMillis": 0,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 249,
+    "finishingTimeMillis": 239,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 0,
+    "processedBytes": 0,
+    "physicalInputBytes": 0,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 0,
+    "peakMemoryBytes": 0,
+    "spilledBytes": 0
+  },
+  "rows": []
+}

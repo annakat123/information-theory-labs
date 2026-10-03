@@ -1,0 +1,85 @@
+{
+  "label": "orc_zstd-customer-properties",
+  "query_id": "20261003_095034_00153_4ekzq",
+  "client_wall_seconds": 0.431,
+  "server_elapsed_ms": 232,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": true,
+    "progressPercentage": 100.0,
+    "runningPercentage": 0.0,
+    "nodes": 1,
+    "totalSplits": 1,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 1,
+    "planningTimeMillis": 2,
+    "analysisTimeMillis": 10,
+    "cpuTimeMillis": 0,
+    "wallTimeMillis": 0,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 232,
+    "finishingTimeMillis": 16,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 8,
+    "processedBytes": 304,
+    "physicalInputBytes": 304,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 0,
+    "peakMemoryBytes": 434,
+    "spilledBytes": 0,
+    "rootStage": {
+      "stageId": "0",
+      "state": "FINISHED",
+      "done": true,
+      "nodes": 1,
+      "totalSplits": 1,
+      "queuedSplits": 0,
+      "runningSplits": 0,
+      "completedSplits": 1,
+      "cpuTimeMillis": 0,
+      "wallTimeMillis": 0,
+      "processedRows": 8,
+      "processedBytes": 304,
+      "physicalInputBytes": 304,
+      "failedTasks": 0,
+      "coordinatorOnly": false,
+      "subStages": []
+    }
+  },
+  "rows": [
+    {
+      "key": "format",
+      "value": "iceberg/ORC"
+    },
+    {
+      "key": "provider",
+      "value": "iceberg"
+    },
+    {
+      "key": "current-snapshot-id",
+      "value": "6368474562310570138"
+    },
+    {
+      "key": "location",
+      "value": "s3://bench/customer-d72b38eb435847d2bea03ccc01f8cada"
+    },
+    {
+      "key": "format-version",
+      "value": "2"
+    },
+    {
+      "key": "write.format.default",
+      "value": "ORC"
+    },
+    {
+      "key": "commit.retry.num-retries",
+      "value": "4"
+    },
+    {
+      "key": "write.orc.compression-codec",
+      "value": "zstd"
+    }
+  ]
+}

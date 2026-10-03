@@ -1,0 +1,7 @@
+"format","requested_codec","schema","bronze_rows","bytes","files","write_wall_seconds","write_source","query_wall_1","query_wall_2","query_wall_3","query_median_wall_seconds","query_server_1","query_server_2","query_server_3","query_median_server_seconds","result_matches_original"
+"PARQUET","ZSTD","v3_bench_parquet_zstd","38249795","111323923","7","8.341","materialized Bronze","8.57","7.917","7.979","7.979","8.45","7.704","7.784","7.784","True"
+"PARQUET","SNAPPY","v3_bench_parquet_snappy","38249795","200903582","7","9.051","materialized Bronze","14.759","13.412","13.749","13.749","14.635","13.292","13.539","13.539","True"
+"PARQUET","GZIP","v3_bench_parquet_gzip","38249795","120697499","8","13.928","materialized Bronze","6.953","6.879","6.949","6.949","6.758","6.761","6.73","6.758","True"
+"ORC","ZSTD","v3_bench_orc_zstd","38249795","130638938","7","8.389","materialized Bronze","8.212","8.108","8.014","8.108","8.038","7.986","7.895","7.986","True"
+"ORC","SNAPPY","v3_bench_orc_snappy","38249795","181982153","7","8.632","materialized Bronze","8.695","8.272","8.532","8.532","8.573","8.028","8.411","8.411","True"
+"ORC","GZIP","v3_bench_orc_gzip","38249795","131325640","7","9.436","materialized Bronze","8.096","8.096","8.062","8.096","7.987","7.932","7.859","7.932","True"

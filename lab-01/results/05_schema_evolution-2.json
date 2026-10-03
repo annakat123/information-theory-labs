@@ -1,0 +1,32 @@
+{
+  "label": "05_schema_evolution-2",
+  "query_id": "20261003_094806_00085_4ekzq",
+  "client_wall_seconds": 0.366,
+  "server_elapsed_ms": 244,
+  "stats": {
+    "state": "FINISHED",
+    "queued": false,
+    "scheduled": false,
+    "nodes": 0,
+    "totalSplits": 0,
+    "queuedSplits": 0,
+    "runningSplits": 0,
+    "completedSplits": 0,
+    "planningTimeMillis": 0,
+    "analysisTimeMillis": 0,
+    "cpuTimeMillis": 0,
+    "wallTimeMillis": 0,
+    "queuedTimeMillis": 0,
+    "elapsedTimeMillis": 244,
+    "finishingTimeMillis": 203,
+    "physicalInputTimeMillis": 0,
+    "processedRows": 0,
+    "processedBytes": 0,
+    "physicalInputBytes": 0,
+    "physicalWrittenBytes": 0,
+    "internalNetworkInputBytes": 0,
+    "peakMemoryBytes": 0,
+    "spilledBytes": 0
+  },
+  "rows": []
+}

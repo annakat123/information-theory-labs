@@ -1,0 +1,12 @@
+minio-data
+pg-data
+Reused existing container: lakehouse-minio
+Reused existing container: lakehouse-pg
+Reused existing container: lakekeeper
+Reused existing container: trino
+lab2-spark apache/spark:3.5.3 Up 2 hours
+trino trinodb/trino:476 Up 2 hours (healthy)
+lakekeeper quay.io/lakekeeper/catalog:latest-main Up 2 hours
+lakehouse-pg postgres:17 Up 2 hours
+lakehouse-minio quay.io/minio/minio:latest Up 2 hours
+STACK READY. Existing tables and containers were preserved.

@@ -1,0 +1,6 @@
+"schema","table","rows","bytes","files","format","parquet_codec","orc_codec"
+"v3_bronze","customer","750000","1149239","1","PARQUET","zstd",
+"v3_bronze","orders","7500000","74608310","2","PARQUET","zstd",
+"v3_bronze","lineitem","29999795","35299592","5","PARQUET","zstd",
+"v3_silver","large_orders_history","602","14524","2","PARQUET","zstd",
+"v3_gold","large_volume_customers","100","3131","1","PARQUET","zstd",

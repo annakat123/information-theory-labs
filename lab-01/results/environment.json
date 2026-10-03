@@ -1,0 +1,47 @@
+{
+  "collected_at": "2026-10-03T13:12:45.9983004+03:00",
+  "cpu": {
+    "Name": "AMD Ryzen 7 7700X 8-Core Processor             ",
+    "NumberOfCores": 8,
+    "NumberOfLogicalProcessors": 16
+  },
+  "os": {
+    "Caption": "Майкрософт Windows 11 Pro",
+    "TotalVisibleMemorySize": 32628640
+  },
+  "docker_memory_bytes": 16298692608,
+  "docker_cpus": 16,
+  "gpu_used": false,
+  "trino": {
+    "nodeVersion": {
+      "version": "476"
+    },
+    "environment": "docker",
+    "coordinator": true,
+    "starting": false,
+    "uptime": "2.01h"
+  },
+  "lakekeeper": {
+    "version": "0.13.1",
+    "lakekeeper-version": "0.13.1",
+    "bootstrapped": true,
+    "server-id": "01a0b066-7dc1-75f3-8c27-2d0c82472919",
+    "default-project-id": "00000000-0000-0000-0000-000000000000",
+    "authz-backend": "allow-all",
+    "aws-system-identities-enabled": false,
+    "azure-system-identities-enabled": false,
+    "gcp-system-identities-enabled": false,
+    "queues": [
+      "soft_deletion",
+      "tabular_purge",
+      "task_log_cleanup"
+    ],
+    "managed-role-providers": [],
+    "license-status": {
+      "issuer": null,
+      "audience": "lakekeeper-core",
+      "license-type": "Apache-2.0",
+      "valid": true
+    }
+  }
+}

@@ -1,0 +1,6 @@
+spark/jars/
+__pycache__/
+_qa/
+*.zip
+*.pdf
+# Results intentionally committed for teacher review; no private data in TPC-H.
