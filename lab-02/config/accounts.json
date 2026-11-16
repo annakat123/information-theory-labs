@@ -1,0 +1,21 @@
+{
+  "name": "accounts-cdc",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "bank",
+    "database.password": "bank_demo",
+    "database.dbname": "bank",
+    "topic.prefix": "bank",
+    "table.include.list": "public.accounts",
+    "plugin.name": "pgoutput",
+    "slot.name": "accounts_slot",
+    "publication.name": "accounts_publication",
+    "publication.autocreate.mode": "filtered",
+    "snapshot.mode": "initial",
+    "tombstones.on.delete": "true",
+    "decimal.handling.mode": "string"
+  }
+}

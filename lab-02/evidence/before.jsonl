@@ -1,0 +1,6 @@
+{"account_id":1001,"owner_name":"Иванов Илья","status":"active","valid_from":"2026-11-15 14:30:54.046138 UTC","valid_to":"2026-11-15 14:33:20.211372 UTC","is_current":false,"version_offset":0}
+{"account_id":1001,"owner_name":"Соколов Максим","status":"active","valid_from":"2026-11-15 14:33:20.211372 UTC","valid_to":null,"is_current":true,"version_offset":3}
+{"account_id":1002,"owner_name":"Петрова Анна","status":"active","valid_from":"2026-11-15 14:30:54.046138 UTC","valid_to":"2026-11-15 14:33:20.387263 UTC","is_current":false,"version_offset":1}
+{"account_id":1002,"owner_name":"Петрова Анна","status":"blocked","valid_from":"2026-11-15 14:33:20.387263 UTC","valid_to":null,"is_current":true,"version_offset":4}
+{"account_id":1003,"owner_name":"Смирнов Олег","status":"active","valid_from":"2026-11-15 14:30:54.046138 UTC","valid_to":"2026-11-15 14:33:20.761747 UTC","is_current":false,"version_offset":2}
+{"account_id":1004,"owner_name":"Орлова Мария","status":"active","valid_from":"2026-11-15 14:33:20.575737 UTC","valid_to":null,"is_current":true,"version_offset":5}

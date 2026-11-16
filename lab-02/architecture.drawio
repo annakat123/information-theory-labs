@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="accounts" name="CDC и SCD Type 2">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="920" pageHeight="650">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="postgres" value="PostgreSQL&#10;Справочник счетов" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="40" y="60" width="220" height="90" />
+        </mxCell>
+        <mxCell id="connect" value="Debezium&#10;Снимок и изменения" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="350" y="60" width="220" height="90" />
+        </mxCell>
+        <mxCell id="kafka" value="Kafka&#10;bank.public.accounts" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="660" y="60" width="220" height="90" />
+        </mxCell>
+        <mxCell id="worker" value="Python&#10;Обработка микробатча" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="660" y="310" width="220" height="90" />
+        </mxCell>
+        <mxCell id="lake" value="MinIO + Iceberg&#10;cdc_events&#10;accounts_history" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="340" y="310" width="240" height="90" />
+        </mxCell>
+        <mxCell id="trino" value="Trino&#10;История счёта на дату" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="40" y="310" width="220" height="90" />
+        </mxCell>
+        <mxCell id="catalog" value="REST-каталог Iceberg&#10;Метаданные таблиц" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#202020;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#202020;spacing=10;">
+          <mxGeometry as="geometry" x="340" y="530" width="240" height="90" />
+        </mxCell>
+        <mxCell id="wal" value="WAL" edge="1" parent="1" source="postgres" target="connect" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-25.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cdc" value="CDC" edge="1" parent="1" source="connect" target="kafka" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-25.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poll" value="Сообщения" edge="1" parent="1" source="kafka" target="worker" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="65.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="write" value="Запись" edge="1" parent="1" source="worker" target="lake" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-25.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="read" value="Чтение" edge="1" parent="1" source="lake" target="trino" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-25.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="commit" value="Коммит&#10;snapshot" edge="1" parent="1" source="worker" target="catalog" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="770" y="575" />
+            </Array>
+            <mxPoint as="offset" x="-87.5" y="-30.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="metadata" value="Запрос&#10;метаданных" edge="1" parent="1" source="trino" target="catalog" style="edgeStyle=none;rounded=0;html=0;endArrow=block;endFill=1;strokeWidth=1;strokeColor=#202020;fontFamily=Arial;fontSize=14;fontColor=#202020;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="150" y="575" />
+            </Array>
+            <mxPoint as="offset" x="87.5" y="-30.0" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

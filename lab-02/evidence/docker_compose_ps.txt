@@ -1,0 +1,9 @@
+NAME                              IMAGE                                  COMMAND                  SERVICE        CREATED          STATUS                     PORTS
+vk-practice2-but-catalog-init-1   tabulario/iceberg-rest:1.6.0           "sh -c 'chown iceber…"   catalog-init   10 minutes ago   Exited (0) 5 seconds ago   
+vk-practice2-but-connect-1        quay.io/debezium/connect:3.1.2.Final   "/docker-entrypoint.…"   connect        11 minutes ago   Up 11 minutes              127.0.0.1:18083->8083/tcp
+vk-practice2-but-kafka-1          apache/kafka:3.9.1                     "/__cacert_entrypoin…"   kafka          11 minutes ago   Up 11 minutes              9092/tcp
+vk-practice2-but-minio-1          quay.io/minio/minio:latest             "/usr/bin/docker-ent…"   minio          11 minutes ago   Up 11 minutes              127.0.0.1:19001->9001/tcp
+vk-practice2-but-minio-init-1     quay.io/minio/mc:latest                "/bin/sh -c 'until m…"   minio-init     11 minutes ago   Exited (0) 5 seconds ago   
+vk-practice2-but-postgres-1       postgres:17                            "docker-entrypoint.s…"   postgres       11 minutes ago   Up 11 minutes (healthy)    5432/tcp
+vk-practice2-but-rest-1           tabulario/iceberg-rest:1.6.0           "java -jar iceberg-r…"   rest           11 minutes ago   Up 3 minutes               8181/tcp
+vk-practice2-but-trino-1          trinodb/trino:476                      "/usr/lib/trino/bin/…"   trino          11 minutes ago   Up 11 minutes (healthy)    127.0.0.1:18080->8080/tcp

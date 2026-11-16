@@ -1,0 +1,1 @@
+SELECT account_id, owner_name, status FROM iceberg.demo.accounts_history WHERE account_id=1001 AND valid_from <= TIMESTAMP '2026-11-15 14:30:54.046138 UTC' AND (valid_to IS NULL OR TIMESTAMP '2026-11-15 14:30:54.046138 UTC' < valid_to);

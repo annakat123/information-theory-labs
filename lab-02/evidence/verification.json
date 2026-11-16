@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "bronze_events": 7,
+  "history_versions": 6,
+  "current_accounts": 3,
+  "replay_unchanged": true,
+  "point_in_time_passed": true,
+  "delete_closed_history": true,
+  "invalid_intervals": 0
+}

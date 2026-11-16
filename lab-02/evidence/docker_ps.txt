@@ -1,0 +1,7 @@
+NAMES                         STATE
+vk-practice2-but-trino-1      running
+vk-practice2-but-rest-1       running
+vk-practice2-but-connect-1    running
+vk-practice2-but-postgres-1   running
+vk-practice2-but-kafka-1      running
+vk-practice2-but-minio-1      running
