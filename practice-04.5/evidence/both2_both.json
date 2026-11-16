@@ -1,0 +1,52 @@
+{
+  "question": "Назови пять групп процессов химической технологии и суммарный выпуск реактора R-01 за январь-март 2026 года.",
+  "mode": "both",
+  "answer": "Вот пять групп процессов химической технологии, а также суммарный выпуск реактора R-01 за январь-март 2026 года:\n\n1. Гидромеханические процессы\n2. Тепловые процессы\n3. Массообменные процессы\n4. Химические процессы\n5. Механические процессы\n\nСуммарный выпуск реактора R-01 за январь-март 2026 года: 0 (пусто)",
+  "trace": [
+    {
+      "tool": "search_docs",
+      "question": "Назови пять групп процессов химической технологии и суммарный выпуск реактора R-01 за январь-март 2026 года.",
+      "context": " химической технологии разделяют в зависимости от общих кинетических закономерностей протекания процесса на пять основных групп:\n\nгидромеханические;\nтепловые;\nмассообменные (или диффузионные) процессы;\nхимические процессы;\nмеханические процессы.\n\n\n== Классификация ==\nПо организационно-технической структуре процессы делятся на периодические и непрерывные.\nНеорганическая химическая технология включает переработку минерального сырья (кроме металлических руд), получение кислот, щелочей, минеральных \n\nй носитель.\nМеханизм гетерогенного катализа включает пять стадий, причём все они обратимы:\n\nДиффузия реагирующих веществ к поверхности твёрдого вещества;\nФизическая адсорбция реагирующих молекул на активных центрах поверхности катализатора и затем их хемосорбция;\nХимическая реакция между реагирующими молекулами;\nДесорбция продуктов с поверхности катализатора;\nДиффузия продукта с поверхности катализатора в общий поток.\nПримером гетерогенного катализа является окисление SO2 в SO3 на катализаторе V\n\n эпоху развития промышленности на основе знаний в области химии, физики и экономики начинают создаваться технологические процессы по получению в значимых количествах широко применяемых химических веществ. Датой возникновения химической технологии можно считать 1789 год, когда Н. Леблан разработал метод получения кальцинированной соды Na2CO3 (так называемый процесс Леблана) на основе известняка (карбоната кальция), угля и сульфата натрия:\n\n  \n    \n      \n        \n          \n            Na\n       "
+    },
+    {
+      "tool": "run_sql",
+      "sql": "SHOW TABLES FROM dw",
+      "result": "dm_agg_chemical\nods_dim_chemical\nods_fact_chemical\nr_agg\nr_dup\nr_pk\nstg_changes_chemical\nstg_dim_chemical\nstg_fact_chemical"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.dm_agg_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nym\tvarchar(7)\tYES\ttrue\tNone\t\ntotal_value\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_dim_chemical",
+      "result": "sk\tbigint\tNO\ttrue\tNone\t\nid\tvarchar(20)\tYES\tfalse\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t\nvalid_from\tdate\tYES\tfalse\tNone\t\nvalid_to\tdate\tYES\tfalse\tNone\t\nis_current\tboolean\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_changes_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_dim_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "SELECT \n    name, \n    SUM(value) AS total_production\nFROM \n    stg_fact_chemical\nJOIN \n    stg_dim_chemical \nON \n    stg_fact_chemical.id = stg_dim_chemical.id\nJOIN \n    stg_changes_chemical \nON \n    stg_fact_chemical.id = stg_changes_chemical.id\nWHERE \n    name LIKE '%Р-01%' \n    AND date BETWEEN '2026-01-01' AND '2026-03-31'\nGROUP BY \n    name",
+      "result": "(пусто)"
+    }
+  ]
+}

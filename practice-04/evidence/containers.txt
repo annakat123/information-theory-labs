@@ -1,0 +1,5 @@
+NAME         IMAGE                  COMMAND                  SERVICE   CREATED          STATUS          PORTS
+rag-minio    pgsty/silo:latest      "/usr/bin/docker-ent…"   minio     10 minutes ago   Up 10 minutes   0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp
+rag-ollama   ollama/ollama:latest   "/bin/ollama serve"      ollama    2 minutes ago    Up 2 minutes    0.0.0.0:11434->11434/tcp, [::]:11434->11434/tcp
+rag-py       python:3.12-slim       "sleep infinity"         py        12 minutes ago   Up 12 minutes   0.0.0.0:8501->8501/tcp, [::]:8501->8501/tcp
+rag-qdrant   qdrant/qdrant:latest   "./entrypoint.sh"        qdrant    10 minutes ago   Up 10 minutes   0.0.0.0:6333->6333/tcp, [::]:6333->6333/tcp

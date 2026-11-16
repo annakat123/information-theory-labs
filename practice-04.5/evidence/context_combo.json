@@ -1,0 +1,42 @@
+{
+  "question": "Назови пять групп процессов химической технологии по кинетическим закономерностям. Затем укажи суммарный выпуск R-01 за январь-март 2026 года. Для числа используй только dw.ods_fact_chemical: id - код реактора, date - дата, value - выпуск. Фильтр id равен R-01, период с 2026-01-01 до 2026-04-01, сумма value. Не используй JOIN.",
+  "mode": "both",
+  "answer": "Пять групп процессов химической технологии по кинетическим закономерностям:\n\n1. Катализ\n2. Синтез\n3. Конверсия\n4. Промышленное производство\n5. Химическая реакция\n\nСуммарный выпуск R-01 за январь-март 2026 года составляет 2495.0 тонн.",
+  "trace": [
+    {
+      "context": " толуол, этилбензол, стирол, кумол;\nфенолы, нитробензолы;\nгалогенпроизводные углеводородов,\nсинтетический каучук, латексы;\nшины, РТИ;\nтехнический углерод\n\n\n== Характеристика ==\nБурное развитие нефтехимия начала в 1930-х годах. Динамику развития можно оценить по объёму мирового производства (в млн тонн): 1950 — 3, 1960 — 11, 1970 — 40, 1980—100. В 1990-е годы нефтехимические продукты составляли более половины мирового объёма производства органических веществ и более одной трети продукции всей хим\n\nул (плазмохимия, радиационное и лазерное воздействия и другие), катализ − основа химических производств (относительная доля каталитических процессов составляет 80-90 %).\nРеакция, накормившая человечество (решение проблемы связанного азота) — цикл Габера-Боша. Аммиак получают с катализатором — пористым железом. Протекает при Р = 30 МПа и Т = 420—500 °C\n3Н2 + N2 = 2NH3\nВодород для синтеза NH3 получают путём двух последовательных каталитических процессов: конверсии СН4(СН4 + Н2О → СО + 3Н2) на Ni−к\n\n эпоху развития промышленности на основе знаний в области химии, физики и экономики начинают создаваться технологические процессы по получению в значимых количествах широко применяемых химических веществ. Датой возникновения химической технологии можно считать 1789 год, когда Н. Леблан разработал метод получения кальцинированной соды Na2CO3 (так называемый процесс Леблана) на основе известняка (карбоната кальция), угля и сульфата натрия:\n\n  \n    \n      \n        \n          \n            Na\n       "
+    },
+    {
+      "sql": "SHOW TABLES FROM dw",
+      "result": "dm_agg_chemical\nods_dim_chemical\nods_fact_chemical\nr_agg\nr_dup\nr_pk\nstg_changes_chemical\nstg_dim_chemical\nstg_fact_chemical"
+    },
+    {
+      "sql": "DESCRIBE dw.dm_agg_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nym\tvarchar(7)\tYES\ttrue\tNone\t\ntotal_value\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "DESCRIBE dw.ods_dim_chemical",
+      "result": "sk\tbigint\tNO\ttrue\tNone\t\nid\tvarchar(20)\tYES\tfalse\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t\nvalid_from\tdate\tYES\tfalse\tNone\t\nvalid_to\tdate\tYES\tfalse\tNone\t\nis_current\tboolean\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "DESCRIBE dw.ods_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "DESCRIBE dw.stg_changes_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "DESCRIBE dw.stg_dim_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "DESCRIBE dw.stg_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "sql": "SELECT \n    id, \n    SUM(value) AS total_production\nFROM \n    dw.ods_fact_chemical\nWHERE \n    id = 'R-01' \n    AND date BETWEEN '2026-01-01' AND '2026-04-01'\nGROUP BY \n    id\nLIMIT 5",
+      "result": "R-01\t2495.0"
+    }
+  ]
+}

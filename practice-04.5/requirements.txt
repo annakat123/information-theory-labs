@@ -1,0 +1,5 @@
+pymysql
+qdrant-client<2
+sentence-transformers
+requests
+mcp<2

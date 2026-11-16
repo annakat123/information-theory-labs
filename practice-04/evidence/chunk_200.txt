@@ -1,0 +1,1 @@
+[chunk] 534 чанков -> Qdrant collection 'chunks_200'

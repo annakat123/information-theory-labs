@@ -1,0 +1,10 @@
+SELECT 'stg_dim',COUNT(*) FROM dw.stg_dim_chemical;
+SELECT 'stg_changes',COUNT(*) FROM dw.stg_changes_chemical;
+SELECT 'stg_fact',COUNT(*) FROM dw.stg_fact_chemical;
+SELECT * FROM dw.ods_dim_chemical ORDER BY id,valid_from;
+SELECT * FROM dw.dm_agg_chemical ORDER BY id,ym;
+SELECT id,SUM(value) FROM dw.ods_fact_chemical GROUP BY id ORDER BY id;
+SELECT COUNT(*) AS invalid_intervals FROM dw.ods_dim_chemical WHERE valid_to <= valid_from;
+SELECT id,COUNT(*) AS currents FROM dw.ods_dim_chemical WHERE is_current=TRUE GROUP BY id;
+SELECT id,owner FROM dw.ods_dim_chemical WHERE id='R-01' AND valid_from <= '2026-01-15' AND (valid_to IS NULL OR valid_to > '2026-01-15');
+SELECT id,owner FROM dw.ods_dim_chemical WHERE id='R-01' AND valid_from <= '2026-03-15' AND (valid_to IS NULL OR valid_to > '2026-03-15');

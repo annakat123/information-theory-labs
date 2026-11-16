@@ -1,0 +1,3 @@
+инструменты: ['run_sql']
+SELECT count(*): 9
+DROP (должен быть ERROR): ERROR: разрешён только read-only (SELECT / SHOW / DESCRIBE / EXPLAIN)

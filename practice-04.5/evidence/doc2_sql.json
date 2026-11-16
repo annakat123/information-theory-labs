@@ -1,0 +1,47 @@
+{
+  "question": "Что такое ректификация и за счёт какого взаимодействия она разделяет смеси?",
+  "mode": "sql",
+  "answer": "Ректификация - это процесс, при котором смесь разделяется на две или более компоненты, которые затем могут быть извлечены и изучены отдельно. Это часто используется в химической и биологической науке для разделения и изучения различных компонентов.\n\nВ вашем случае, \"RETIRED\" и \"RETIRED_OWNER\" указывают на состояние и владельца изменения, соответственно. Если изменения были отменены или переименованы, это может быть связано с ректификацией смесей.",
+  "trace": [
+    {
+      "tool": "run_sql",
+      "sql": "SHOW TABLES FROM dw",
+      "result": "dm_agg_chemical\nods_dim_chemical\nods_fact_chemical\nr_agg\nr_dup\nr_pk\nstg_changes_chemical\nstg_dim_chemical\nstg_fact_chemical"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.dm_agg_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nym\tvarchar(7)\tYES\ttrue\tNone\t\ntotal_value\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_dim_chemical",
+      "result": "sk\tbigint\tNO\ttrue\tNone\t\nid\tvarchar(20)\tYES\tfalse\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t\nvalid_from\tdate\tYES\tfalse\tNone\t\nvalid_to\tdate\tYES\tfalse\tNone\t\nis_current\tboolean\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_changes_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_dim_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "SELECT \n    stg_dim_chemical.name AS chemical_name,\n    stg_fact_chemical.value AS current_value,\n    stg_changes_chemical.status AS change_status,\n    stg_changes_chemical.owner AS change_owner\nFROM \n    stg_dim_chemical\nJOIN \n    stg_fact_chemical ON stg_dim_chemical.id = stg_fact_chemical.id\nJOIN \n    stg_changes_chemical ON stg_fact_chemical.id = stg_changes_chemical.id\nWHERE \n    stg_changes_chemical.status = 'RETIRED' AND \n    stg_changes_chemical.owner = 'RETIRED_OWNER'",
+      "result": "(пусто)"
+    }
+  ]
+}

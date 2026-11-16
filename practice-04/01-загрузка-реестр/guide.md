@@ -1,0 +1,215 @@
+# Стадия 1 — Загрузка документов и реестр (~40 мин)
+
+> Делаешь лабу первый раз и половина слов непонятна — не пугайся. Здесь объяснена
+> **каждая** команда. Иди по шагам сверху вниз и в конце проверь чек-пойнт.
+
+## Что мы делаем (простыми словами)
+
+RAG = **R**etrieval-**A**ugmented **G**eneration. Сначала система **находит** нужные
+куски твоих документов (retrieval), потом **генерирует** ответ по ним (generation).
+
+На этой стадии — самое начало: **кладём документы в хранилище и заводим их список**.
+Это как склад, куда заносят книги и заполняют на них карточки каталога.
+
+- **MinIO** — объектное хранилище, совместимое с Amazon S3. Файл в нём — **объект**
+  (object), а папка-контейнер — **бакет** (bucket). Это «склад».
+- **Реестр (`manifest.json`)** — список того, что лежит на складе. Это «каталог».
+
+Зачем: в стадии 2 документы будем читать именно из MinIO — тогда пайплайн выглядит как
+настоящий ETL, а не «файлы в соседней папке».
+
+## Что уже должно быть готово
+
+- Установлен Docker (Desktop или аналог).
+- Ты в каталоге лабы (папка `laba4`, если клонировал репозиторий через `git clone`;
+  если скачал ZIP — распакованная папка; там лежит `docker-compose.yml`).
+
+## Шаг 0. Поднять стек (4 контейнера)
+
+```bash
+cd laba4
+docker compose up -d
+docker compose ps
+```
+
+`docker compose up -d` читает `docker-compose.yml` и запускает 4 контейнера. `-d` = «в
+фоне» (detached), чтобы терминал не занимало. Контейнер — изолированная мини-машина со
+своей программой:
+
+| Контейнер | Что это | Порт |
+|---|---|---|
+| `rag-minio` | хранилище документов (форк MinIO — Silo) | 9000 (S3), 9001 (веб-консоль) |
+| `rag-qdrant` | векторная база (сюда в стадии 2 лягут эмбеддинги) | 6333 |
+| `rag-ollama` | локальная нейросеть (LLM, нужна в стадии 3) | 11434 |
+| `rag-py` | python, где крутятся наши скрипты | 8501 |
+
+Что увидишь: `docker compose ps` выведет 4 строки со статусом `Up`. Если какой-то не `Up`
+— подожди 30 секунд и повтори.
+
+> Первый `up -d` качает образы из интернета (сотни МБ), может идти несколько минут.
+
+## Шаг 1. Подготовить документы
+
+Документы лежат в `documents/<твоя-сфера>/`. Сферы-варианты:
+
+| Папка | Сфера |
+|---|---|
+| `documents/cs/` | Информатика и ВТ (есть готовый пример) |
+| `documents/oil-gas/` | Нефтегаз |
+| `documents/metallurgy/` | Металлургия |
+| `documents/chemical/` | Химическая технология |
+
+Правило имён — **важно**: один документ = один файл `NN-название.md`, где `NN` — номер
+от `01`. Например `01-добыча-нефти.md`.
+
+**`NN` в имени файла — это `doc_id`.** По нему в стадии 2 каждый чанк помечается «из
+какого документа», а в стадии 3 по нему считается точность (recall). Поэтому номера
+должны быть уникальны и идти подряд от `01`.
+
+Файлы вида `README.md` и любые `.md` без `NN-` в начале загрузчик **пропустит** сам.
+
+Где взять документы — `документы-источники.md` (открытые учебники, НЭБ, статьи). Брать
+только текстовый слой (`.md`/`.txt`), не скан-картинки.
+
+## Шаг 2. Поставить Python-библиотеки (один раз)
+
+```bash
+docker compose exec py pip install -r /app/requirements.txt
+```
+
+`docker compose exec py ...` = «выполни команду внутри контейнера `py`». Мы запускаем
+`pip install` (установщик пакетов) со списком из `/app/requirements.txt`. Ставятся
+библиотеки: `minio` (работа с хранилищем), `qdrant-client`, `sentence-transformers`
+(эмбеддинги), `streamlit` (UI), `requests` (HTTP).
+
+Что увидишь: длинный вывод и в конце `Successfully installed ...`. Ошибка сети — повтори.
+
+## Шаг 3. Создать скрипт loader.py
+
+Скопируй блок целиком — он создаст файл `01-загрузка-реестр/loader.py` (это и есть
+загрузчик). Править в нём ничего не нужно:
+
+```bash
+cat > 01-загрузка-реестр/loader.py << 'EOF'
+"""Стадия 1 — Загрузка документов в MinIO + реестр manifest.json.
+
+Читает .md из локальной папки (./documents/<сфера>), заливает каждый файл в MinIO
+(bucket `rag`, префикс `documents/`) и пишет реестр manifest.json.
+
+Запуск (внутри python-контейнера):
+  docker compose exec py python /app/01-загрузка-реестр/loader.py --folder documents/cs
+"""
+import argparse
+import json
+import os
+import time
+
+from minio import Minio
+
+MINIO_HOST = "minio:9000"
+ACCESS = "minioadmin"
+SECRET = "minioadmin"
+BUCKET = "rag"
+PREFIX = "documents/"
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--folder", required=True,
+                    help="папка с документами, напр. documents/cs")
+    args = ap.parse_args()
+
+    mc = Minio(MINIO_HOST, access_key=ACCESS, secret_key=SECRET, secure=False)
+    if not mc.bucket_exists(BUCKET):
+        mc.make_bucket(BUCKET)
+        print(f"[load] создан bucket s3://{BUCKET}")
+
+    manifest = []
+    for name in sorted(os.listdir(args.folder)):
+        if not name.endswith(".md"):
+            continue
+        # "01-lakehouse.md" -> doc_id = 1, title = "lakehouse"
+        head = name.split("-", 1)[0]
+        if not head.isdigit():
+            continue          # пропускаем README.md и прочие файлы не вида NN-название.md
+        doc_id = int(head)
+        title = name.split("-", 1)[1].removesuffix(".md").replace("-", " ")
+        obj = f"{PREFIX}{name}"
+        mc.fput_object(BUCKET, obj, os.path.join(args.folder, name))
+        manifest.append({
+            "doc_id": doc_id,
+            "title": title,
+            "path": obj,
+            "loaded_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+        })
+        print(f"[load] {name} -> s3://{BUCKET}/{obj}")
+
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manifest.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    print(f"[load] готово: {len(manifest)} документов, реестр {out}")
+
+
+if __name__ == "__main__":
+    main()
+EOF
+```
+
+## Шаг 4. Загрузить документы (запустить loader.py)
+
+```bash
+docker compose exec py python /app/01-загрузка-реестр/loader.py --folder documents/cs
+```
+
+`--folder` — папка с твоими документами (подставь свою сферу). Что делает `loader.py`:
+
+1. Подключается к MinIO, создаёт бакет `rag`, если его нет.
+2. Идёт по файлам в `--folder`, из каждого `NN-название.md` достаёт `doc_id = NN`.
+3. Заливает файл в `s3://rag/documents/NN-название.md`.
+4. Собирает реестр и пишет `01-загрузка-реестр/manifest.json`.
+
+Что увидишь: строки `[load] 01-... -> s3://rag/documents/01-...` по числу документов и в
+конце `[load] готово: N документов`.
+
+## Чек-пойнт (проверь, что получилось)
+
+1. Веб-консоль MinIO: http://localhost:9001 (логин/пароль `minioadmin` / `minioadmin`).
+   В бакете `rag` → папка `documents/` лежат твои файлы.
+2. Открой `01-загрузка-реестр/manifest.json` — JSON-список. Записей столько же, сколько
+   документов, у каждой есть `doc_id`, `title`, `path`, `loaded_at`.
+
+Совпало — стадия 1 готова, иди в стадию 2.
+
+## Если что-то пошло не так / как откатиться
+
+**Переделать только стадию 1** (залилось не то / ошибка в имени файла):
+
+```bash
+# 1) очистить бакет от всего, что залили
+docker compose exec -T py python - <<'PYEOF'
+from minio import Minio
+mc = Minio("minio:9000", access_key="minioadmin", secret_key="minioadmin", secure=False)
+for o in list(mc.list_objects("rag", recursive=True)):
+    mc.remove_object("rag", o.object_name)
+print("бакет rag очищен")
+PYEOF
+
+# 2) удалить реестр
+rm 01-загрузка-реестр/manifest.json
+
+# 3) поправить файлы в documents/... и повторить Шаг 4
+```
+
+**Полный сброс всей лабы** — стереть ВСЁ (MinIO, Qdrant, Ollama-модели, библиотеки) и
+начать с абсолютно чистого листа:
+
+```bash
+docker compose down -v      # удалить контейнеры И все данные (volumes)
+docker compose up -d        # поднять заново
+docker compose exec py pip install -r /app/requirements.txt   # заново библиотеки
+docker compose exec ollama ollama pull qwen2.5:1.5b           # заново модель (для стадии 3)
+```
+
+> `down -v` стирает и данные, и установленные пакеты — после него нужно заново ставить
+> библиотеки и качать модель. Это «ядерный» вариант, используй, когда совсем запутался.
+> Сами документы в `documents/` и скрипты эта команда **не трогает** — они на твоём диске.

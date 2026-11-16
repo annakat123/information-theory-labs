@@ -1,0 +1,4 @@
+[load] /app/data/chemical/dim.csv -> dw.stg_dim_chemical: 5 строк
+[load] /app/data/chemical/changes.csv -> dw.stg_changes_chemical: 3 строк
+[load] /app/data/chemical/fact.csv -> dw.stg_fact_chemical: 9 строк
+[load] готово

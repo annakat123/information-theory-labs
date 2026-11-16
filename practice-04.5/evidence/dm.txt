@@ -1,0 +1,1 @@
+[dm] витрина dw.dm_agg_chemical готова: 9 строк

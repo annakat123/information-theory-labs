@@ -1,0 +1,4 @@
+NAME             IMAGE                            COMMAND                  SERVICE     CREATED          STATUS          PORTS
+vk45-py          vk-education-labs-python:local   "sleep infinity"         py          13 minutes ago   Up 12 minutes   8501/tcp
+vk45-qdrant      qdrant/qdrant:latest             "./entrypoint.sh"        qdrant      13 minutes ago   Up 12 minutes   0.0.0.0:6334->6333/tcp, [::]:6334->6333/tcp
+vk45-starrocks   starrocks/allin1-ubuntu:3.3.11   "/bin/sh -c ./entryp…"   starrocks   9 minutes ago    Up 9 minutes    127.0.0.1:8030->8030/tcp, 127.0.0.1:8040->8040/tcp, 127.0.0.1:9030->9030/tcp

@@ -1,0 +1,52 @@
+{
+  "question": "На какие пять групп делят процессы химической технологии по кинетическим закономерностям?",
+  "mode": "both",
+  "answer": "Процессы химической технологии по кинетическим закономерностям делятся на пять основных групп: гидромеханические, тепловые, массообменные (или диффузионные) процессы, химические процессы и механические процессы.",
+  "trace": [
+    {
+      "tool": "search_docs",
+      "question": "На какие пять групп делят процессы химической технологии по кинетическим закономерностям?",
+      "context": " химической технологии разделяют в зависимости от общих кинетических закономерностей протекания процесса на пять основных групп:\n\nгидромеханические;\nтепловые;\nмассообменные (или диффузионные) процессы;\nхимические процессы;\nмеханические процессы.\n\n\n== Классификация ==\nПо организационно-технической структуре процессы делятся на периодические и непрерывные.\nНеорганическая химическая технология включает переработку минерального сырья (кроме металлических руд), получение кислот, щелочей, минеральных \n\nй носитель.\nМеханизм гетерогенного катализа включает пять стадий, причём все они обратимы:\n\nДиффузия реагирующих веществ к поверхности твёрдого вещества;\nФизическая адсорбция реагирующих молекул на активных центрах поверхности катализатора и затем их хемосорбция;\nХимическая реакция между реагирующими молекулами;\nДесорбция продуктов с поверхности катализатора;\nДиффузия продукта с поверхности катализатора в общий поток.\nПримером гетерогенного катализа является окисление SO2 в SO3 на катализаторе V\n\nли, силикагель, алюмосиликаты, оксиды алюминия, магния, циркония и др.).\n\n\n== Химия катализа ==\nХимия катализа изучает вещества, изменяющие скорость химических реакций. Вещества, замедляющие реакции, называются ингибиторами. Ферменты — это биологические катализаторы. Катализатор не находится в стехиометрических отношениях с продуктами и регенерируется после каждого цикла превращения реагентов в продукты. Несмотря на появление новых способов активации молекул (плазмохимия, радиационное и лазерное"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "SHOW TABLES FROM dw",
+      "result": "dm_agg_chemical\nods_dim_chemical\nods_fact_chemical\nr_agg\nr_dup\nr_pk\nstg_changes_chemical\nstg_dim_chemical\nstg_fact_chemical"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.dm_agg_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nym\tvarchar(7)\tYES\ttrue\tNone\t\ntotal_value\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_dim_chemical",
+      "result": "sk\tbigint\tNO\ttrue\tNone\t\nid\tvarchar(20)\tYES\tfalse\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t\nvalid_from\tdate\tYES\tfalse\tNone\t\nvalid_to\tdate\tYES\tfalse\tNone\t\nis_current\tboolean\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.ods_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_changes_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_dim_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\nname\tvarchar(60)\tYES\tfalse\tNone\t\nstatus\tvarchar(30)\tYES\tfalse\tNone\t\nowner\tvarchar(60)\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "DESCRIBE dw.stg_fact_chemical",
+      "result": "id\tvarchar(20)\tYES\ttrue\tNone\t\ndate\tdate\tYES\ttrue\tNone\t\nvalue\tdouble\tYES\tfalse\tNone\t"
+    },
+    {
+      "tool": "run_sql",
+      "sql": "SELECT \n    name, \n    status, \n    owner, \n    COUNT(DISTINCT id) AS process_count\nFROM \n    stg_dim_chemical AS stg_dim\nJOIN \n    stg_changes_chemical AS stg_changes \nON \n    stg_dim.id = stg_changes.id\nGROUP BY \n    name, \n    status, \n    owner\nHAVING \n    process_count >= 5",
+      "result": "ERROR: (1064, \"Getting analyzing error. Detail message: Column 'status' is ambiguous.\")"
+    }
+  ]
+}

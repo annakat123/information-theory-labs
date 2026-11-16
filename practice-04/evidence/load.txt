@@ -1,0 +1,7 @@
+[load] создан bucket s3://rag
+[load] 01-химическая-технология.md -> s3://rag/documents/01-химическая-технология.md
+[load] 02-ректификация.md -> s3://rag/documents/02-ректификация.md
+[load] 03-катализ.md -> s3://rag/documents/03-катализ.md
+[load] 04-полимер.md -> s3://rag/documents/04-полимер.md
+[load] 05-нефтехимия.md -> s3://rag/documents/05-нефтехимия.md
+[load] готово: 5 документов, реестр /app/01-загрузка-реестр/manifest.json

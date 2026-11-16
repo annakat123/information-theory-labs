@@ -1,0 +1,31 @@
+services:
+  starrocks:
+    image: starrocks/allin1-ubuntu:3.3.11
+    container_name: vk45-starrocks
+    ports:
+      - "127.0.0.1:9030:9030"
+      - "127.0.0.1:8030:8030"
+      - "127.0.0.1:8040:8040"
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: vk45-qdrant
+    ports:
+      - "6334:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+  py:
+    image: vk-education-labs-python:local
+    build: .
+    container_name: vk45-py
+    working_dir: /app
+    command: sleep infinity
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - .:/app
+      - hf-cache:/root/.cache/huggingface
+volumes:
+  qdrant-data:
+  hf-cache:
+    external: true
+    name: vk-rag4_hf-cache
